@@ -1,0 +1,23 @@
+import jwt from "jsonwebtoken";
+
+
+export const isAuthenticated = async (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const accessToken = authHeader.split(" ")[1];
+    if(!accessToken){
+        return res.status(401).json({message:"Unauthorized"})
+    }
+    try {
+        const decodeToken = jwt.verify(accessToken,process.env.JWT_SECRET)
+        req.user = decodeToken
+        next()
+
+    } catch (error) {
+        return res.status(401).json({message:"Unauthorized"})
+    }
+}

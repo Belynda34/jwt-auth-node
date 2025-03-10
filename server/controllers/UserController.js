@@ -53,7 +53,7 @@ export const login = async (req,res) =>{
             return res.status(401).json({message:"Email or password invalid"})
         }
 
-        const accessToken = jwt.sign({user_id:currentUser.id,email:currentUser.email},process.env.JWT_SECRET,{expiresIn:'1h'}) 
+        const accessToken = jwt.sign({id:currentUser.id,email:currentUser.email},process.env.JWT_SECRET,{expiresIn:'1h'}) 
 
         res.status(200).json({id:currentUser.id,email:currentUser.email,accessToken})
 
@@ -64,4 +64,15 @@ export const login = async (req,res) =>{
 }
 
 
-// export 
+export const getUser = async (req,res) => { 
+  try {
+    if (!req.user || !req.user.id) {
+      return res.status(400).json({ message: "Invalid token or missing user ID" });
+    }
+    const currentUser = await User.findOne({where:{id:req.user.id}})
+    res.status(200).json({id:currentUser.id,username:currentUser.username,email:currentUser.email})
+  } catch (error) {
+     res.status(500).json({message:'Internal Server Error'})
+     console.error('Error:',error.message)
+  }
+}

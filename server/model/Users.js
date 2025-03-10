@@ -38,8 +38,21 @@ const User = sequelize.define(
     },
   },
   {
-    tableName:"users",
     timestamps: true,
+    indexes:[
+      {
+        name:"user_name",
+        fields:["username"]
+      },
+      {
+        name:"user_email",
+        fields:["email"]
+      },
+      {
+        name:"user_password",
+        fields:["password"]
+      }
+    ]
   }
 );
 
