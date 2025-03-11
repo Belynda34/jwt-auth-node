@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 
 
 export const isAuthenticated = async (req, res, next) => {
+
     const authHeader = req.headers.authorization;
     
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -13,11 +14,19 @@ export const isAuthenticated = async (req, res, next) => {
         return res.status(401).json({message:"Unauthorized"})
     }
     try {
-        const decodeToken = jwt.verify(accessToken,process.env.JWT_SECRET)
-        req.user = decodeToken
+        const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET)
+       
+        req.user = decodedToken
         next()
 
     } catch (error) {
+        console.log("Error with:",error.message)
         return res.status(401).json({message:"Unauthorized"})
     }
 }
+
+
+
+
+
+
