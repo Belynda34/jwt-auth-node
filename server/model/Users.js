@@ -24,7 +24,9 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: {
+        name:'user_email'
+      },
       validate: {
         isEmail: true,
       },
@@ -40,6 +42,7 @@ const User = sequelize.define(
         len: [3, 100],
       },
     },
+   
   },
   {
     timestamps: true,
@@ -49,13 +52,13 @@ const User = sequelize.define(
         fields:["username"]
       },
       {
-        name:"user_email",
-        fields:["email"]
+        name:"user_role",
+        fields:["role"]
       },
       {
         name:"user_password",
         fields:["password"]
-      }
+      },
     ]
   }
 );

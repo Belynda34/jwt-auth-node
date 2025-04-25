@@ -15,17 +15,10 @@ app.use(express.json())
 app.use('/',router)
 
 
-// app.get('/',(req,res) =>{
-//     res.send("Authorization and Authentication")
-// })
-
-
-
-
 const startServer = async () => {
     try {
         await connectDB(); 
-        await sequelize.sync({ alter: true }); 
+        await sequelize.sync({ force: true }); 
         console.log("Database synchronized successfully");
 
         
