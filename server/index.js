@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { sequelize,connectDB } from "./model/Users.js";
 import router from "./routes/routes.js";
+import cors from "cors"
 
 dotenv.config()
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(express.json())
 
+app.use(cors())
 
 app.use('/',router)
 
@@ -18,7 +20,7 @@ app.use('/',router)
 const startServer = async () => {
     try {
         await connectDB(); 
-        await sequelize.sync({ force: true }); 
+        await sequelize.sync({ alter: true }); 
         console.log("Database synchronized successfully");
 
         
