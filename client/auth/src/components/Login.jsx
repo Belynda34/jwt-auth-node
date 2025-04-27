@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+import { IoEye,IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
+  const [passwordVisible,setPasswordVisible] = useState(false)
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -46,15 +48,16 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>
+            <div className="relative">
               <input
                 name="password"
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 required
                 className="outline-none w-full h-[50px] bg-gray-100 rounded-lg focus:border-2 focus:bg-white focus:border-gray-300 pl-4 font-semibold"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {passwordVisible ? (<IoEyeOff className="text-xl text-gray-600 absolute right-4 top-1/2 transform -translate-y-1/2" onClick={() => setPasswordVisible((prev) => !prev)}/>) :(<IoEye className="text-xl text-gray-600 absolute right-4 top-1/2 transform -translate-y-1/2 " onClick={() => setPasswordVisible((prev) => !prev)}/>)}
             </div>
             <div>
               <button

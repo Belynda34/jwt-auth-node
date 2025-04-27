@@ -18,6 +18,7 @@ const SessionWrapper = ({children}) => {
         localStorage.removeItem("token");
         return <Navigate to={"/login"}/>
     }
+    return children;
 }
 
 export default SessionWrapper;
