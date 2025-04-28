@@ -15,7 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={token ? <Navigate to={"/display"}/> : <Signup/>}/>
+          <Route path="/signup" element={token ? <Navigate to={"/display"}/> : <Signup/>}/>
           <Route path='' element={<Login/>}/>
           <Route path="/login" element={token ? <Navigate to={"/display"}/> : <Login/>}/>
           <Route path="/display" element={

@@ -14,8 +14,8 @@ export const isAuthenticated = async (req, res, next) => {
         return res.status(401).json({message:"Unauthorized"})
     }
     try {
-        const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET)
-       
+        const decodedToken = jwt.verify(accessToken, process.env.ACCESS_JWT_SECRET)
+        console.log("Authorization Header:", req.headers.authorization);
         req.user = decodedToken
         next()
 

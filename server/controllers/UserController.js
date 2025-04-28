@@ -55,7 +55,7 @@ export const login = async (req, res) => {
     const accessToken = jwt.sign(
       { id: currentUser.id, email: currentUser.email },
       process.env.ACCESS_JWT_SECRET,
-      { expiresIn: "2m" }
+      { expiresIn: "10m" }
     );
 
 
@@ -111,6 +111,6 @@ export const OnlyAdmins = async (req, res) => {
 export const getAllUsers = async (req, res) => {
   try {
     const data = await User.findAll({});
-    res.status(200).json({ message: data });
+    res.status(200).json({ users: data });
   } catch (error) {}
 };
