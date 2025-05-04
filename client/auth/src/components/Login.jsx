@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
       <ToastContainer />
-      <div className="bg-white w-[32rem] h-[32rem] rounded-lg p-8 space-y-10">
+      <div className="bg-white w-[28rem] h-[30rem] rounded-lg p-8 space-y-10">
         <div>
           <h1 className="text-3xl text-cyan-700 font-bold text-center pt-7">
             Log In
@@ -70,7 +70,7 @@ const Login = () => {
             <div className="text-center">
               <section className="text-lg font-medium">
                 Don't have an account?{" "}
-                <Link className="text-cyan-700" to={"/"}>
+                <Link className="text-cyan-700" to={"/signup"}>
                   SignUp
                 </Link>
               </section>

@@ -33,7 +33,7 @@ const Signup = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
       <ToastContainer/>
-      <div className="bg-white w-[32rem] h-[32rem] rounded-lg p-8 space-y-10">
+      <div className="bg-white w-[28rem] h-[32rem] rounded-lg p-8 space-y-10">
         <div>
           <h1 className="text-3xl text-cyan-700 font-bold text-center pt-7">
             Sign Up
