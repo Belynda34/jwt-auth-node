@@ -1,0 +1,6 @@
+npm init -y
+npm install express bcryptjs jsonwebtoken joi prisma @prisma/client
+npm install nodemon
+npm install dotenv
+npx prisma migrate dev --name 
+npm install nodemailer

@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.7.0"
+  },
+  "name": "restful",
+  "version": "1.0.0",
+  "description": "npm install express bcryptjs jsonwebtoken joi prisma @prisma/client\r npx prisma migrate dev --name init",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
